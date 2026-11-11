@@ -1,0 +1,27 @@
+package week04_recursion_dp
+
+/*
+ * Problem: 322. Coin Change (LeetCode)
+ *
+ * You are given an integer array `coins` representing coins of different
+ * denominations and an integer `amount` representing a total amount of money.
+ *
+ * Return the FEWEST number of coins that you need to make up that amount.
+ * If that amount of money cannot be made up by any combination of the
+ * coins, return -1.
+ *
+ * You may assume that you have an infinite number of each kind of coin.
+ *
+ *   coins = [1, 2, 5], amount = 11  -> 3 (5 + 5 + 1)
+ *   coins = [2],       amount = 3   -> -1 (impossible)
+ *   coins = [1],       amount = 0   -> 0  (no coins needed)
+ *
+ * Unbounded knapsack DP:
+ *   dp[a] = min coins to make amount `a`
+ *   dp[a] = min(dp[a - c] + 1) for each coin c <= a
+ */
+class P0322CoinChange {
+    fun coinChange(coins: IntArray, amount: Int): Int {
+        TODO("Your solution here")
+    }
+}
