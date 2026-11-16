@@ -19,7 +19,32 @@ package week03_trees_graphs
  *   Output: 3  (path 4 -> 2 -> 5 -> ... wait, longest is 4 -> 2 -> 1 -> 3 = 3 edges)
  */
 class P0543DiameterOfBinaryTree {
+    var maxDiameter = 0
     fun diameterOfBinaryTree(root: TreeNode?): Int {
-        TODO("Your solution here")
+        if(root == null)
+            return  0
+
+        getHeight(root)
+
+
+        return maxDiameter
+
+          }
+
+    fun getHeight (node: TreeNode?) : Int
+    {
+        if(node == null)
+        {
+            return 0
+        }
+
+        var leftHeight = getHeight(node.left)
+        var rightHeight = getHeight(node.right)
+
+        var currentDiameter = leftHeight + rightHeight
+
+        maxDiameter = Math.max(maxDiameter, currentDiameter)
+
+      return 1 + Math.max(leftHeight, rightHeight)
     }
 }

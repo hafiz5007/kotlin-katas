@@ -17,7 +17,14 @@ package week03_trees_graphs
  *   Output: 3
  */
 class P0104MaxDepthBinaryTree {
+   
     fun maxDepth(root: TreeNode?): Int {
-        TODO("Your solution here")
+        if(root == null)
+            return  0
+
+        var leftNode = root.left
+        var rightNode = root.right
+
+        return  1 + Math.max(maxDepth(leftNode), maxDepth(rightNode))
     }
 }

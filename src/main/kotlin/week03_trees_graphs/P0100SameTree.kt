@@ -10,7 +10,20 @@ package week03_trees_graphs
  * identical AND the nodes have the same value.
  */
 class P0100SameTree {
-    fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
-        TODO("Your solution here")
+  fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
+        if(p == null && q == null)
+        {
+            return true
+        }
+
+
+        if(p == null ||  q == null || p?.`val` != q?.`val`)
+        {
+            return false
+        }
+
+
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+
     }
 }
