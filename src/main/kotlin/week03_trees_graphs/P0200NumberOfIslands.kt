@@ -26,6 +26,37 @@ package week03_trees_graphs
  */
 class P0200NumberOfIslands {
     fun numIslands(grid: Array<CharArray>): Int {
-        TODO("Your solution here")
+        if (grid.isEmpty()) return 0
+
+        val rows = grid.size
+        val cols = grid[0].size
+        var islands = 0
+
+        fun dfs(r: Int, c: Int) {
+            // Stop if out of bounds or at water ('0')
+            if (r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] == '0') {
+                return
+            }
+
+            // Sink the current land cell so it isn't counted again
+            grid[r][c] = '0'
+
+            // Visit all 4 adjacent neighbours
+            dfs(r + 1, c)
+            dfs(r - 1, c)
+            dfs(r, c + 1)
+            dfs(r, c - 1)
+        }
+
+        for (r in 0 until rows) {
+            for (c in 0 until cols) {
+                if (grid[r][c] == '1') {
+                    islands++
+                    dfs(r, c)
+                }
+            }
+        }
+
+        return islands
     }
 }
